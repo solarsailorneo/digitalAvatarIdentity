@@ -1,0 +1,26 @@
+{
+  "name": "digitalavataridentity",
+  "version": "1.0.0",
+  "description": "ERC-725 Token",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solarsailorneo/digitalAvatarIdentity.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/solarsailorneo/digitalAvatarIdentity/issues"
+  },
+  "homepage": "https://github.com/solarsailorneo/digitalAvatarIdentity#readme",
+  "devDependencies": {
+    "hardhat": "^2.9.9"
+  },
+  "dependencies": {
+    "@erc725/smart-contracts": "^3.1.1"
+  }
+}
