@@ -24,9 +24,8 @@ describe("MyIdentity contract", function () {
         });
     
         it("Output data called by key should match input data with delimiters", async function () {
-            const dataString = name + "|" + linktree + "|" + photoHash;
-            const hardhatMyIdentity = await MyIdentity.deploy(name, linktree, photoHash);
-        
+            const dataString = name + "<CR>" + linktree + "<CR>" + photoHash;
+
             expect(ownerEthers.address).to.equal(owner);
             expect(await hardhatMyIdentity["getData(address)"](owner)).to.equal(dataString);
         });
