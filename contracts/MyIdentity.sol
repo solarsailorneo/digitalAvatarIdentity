@@ -103,6 +103,7 @@ contract MyIdentity is ERC725Y {
     function getData(string memory key) public view
     returns (string memory)
     {
+        // bytes32 _key = stringToBytes32(key);
         return (bytes2String(getData(keccak256(bytes(key)))));
     }
 
