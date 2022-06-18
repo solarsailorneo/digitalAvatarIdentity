@@ -69,14 +69,14 @@ contract MyIdentity is ERC725Y {
     }
 
 
-    constructor(string memory name, string memory linktree, string memory photoHash) ERC725Y(msg.sender) {
-        bytes32 _identity = bytes32(uint256(uint160(msg.sender)));
+    constructor(string memory key, string memory name, string memory linktree, string memory photoHash) ERC725Y(msg.sender) {
+        bytes32 _key = keccak256(bytes(key));
         identity memory id;
         id.name = name;
         id.linktree = linktree;
         id.photoHash = photoHash;
 
-        setData(_identity, identityStruct2Bytes(id));
+        setData(_key, identityStruct2Bytes(id));
 
     }
 
@@ -103,8 +103,7 @@ contract MyIdentity is ERC725Y {
     function getData(string memory key) public view
     returns (string memory)
     {
-        bytes32 _key = stringToBytes32(key);
-        return (bytes2String(getData(_key)));
+        return (bytes2String(getData(keccak256(bytes(key)))));
     }
 
 
