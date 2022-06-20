@@ -1,4 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
+require("hardhat-gas-reporter");
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -12,5 +13,10 @@ module.exports = {
         runs: 200
       }
     }
+  },
+  gasReporter: {
+    currency: 'USD',
+    gasPrice: 21,
+    coinmarketcap: ""
   }
 };
