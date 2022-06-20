@@ -14,10 +14,10 @@ The test tells us we only spend gas when deploying the contract, as it only runs
 ![erc725_deployment_only](https://user-images.githubusercontent.com/104654584/174658086-3e4e5fdb-e07a-4145-a6d6-7ab4b3a71e5c.png)
 
 
-## Ways NOT to use this contract
-1. Encrypt the keys on-chain (as it is being done at the moment for demo purposes).
-2. Store information on-chain in the value-pair that should **NOT** be known by everyone. You should only store information in this contract that everyone else should know.
-3. Encrypt information that should **NOT** be known off-chain and store it on-chain (Don't do it).
+## Ways NOT to use this contract (DONTs)
+1. Don't encrypt the keys on-chain (as it is being done at the moment for demo purposes).
+2. Don't store information on-chain in the value-pair that should **NOT** be known by everyone. You should only store information in this contract that everyone else should know.
+3. Don't encrypt information that should **NOT** be known off-chain and store it on-chain (Don't do it).
 
 
 ## Next Steps
