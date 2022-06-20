@@ -1,0 +1,7 @@
+{
+    "remappings": [ "@openzeppelin/=./node_modules/@openzeppelin/",
+                    "@erc725/=./node_modules/@erc725/" ],
+     "optimizer": {
+       "enabled": true
+     }
+   }
