@@ -16,7 +16,7 @@ contract MyIdentity is ERC725Y {
     }
 
 
-    function identityStruct2Bytes(identity memory id) private pure
+    function _identityStruct2Bytes(identity memory id) private pure
     returns (bytes memory data)
     {
         string memory delimiter = "<CR>";
@@ -62,7 +62,7 @@ contract MyIdentity is ERC725Y {
     }
 
 
-     function bytes2String(bytes memory data) private pure
+     function _bytes2String(bytes memory data) private pure
      returns(string memory) {
         string memory converted = string(data);
         return converted;
@@ -76,12 +76,12 @@ contract MyIdentity is ERC725Y {
         id.linktree = linktree;
         id.photoHash = photoHash;
 
-        setData(_key, identityStruct2Bytes(id));
+        setData(_key, _identityStruct2Bytes(id));
 
     }
 
 
-    function stringToBytes32(string memory source) private pure returns (bytes32 result) {
+    function _stringToBytes32(string memory source) private pure returns (bytes32 result) {
         bytes memory tempEmptyStringTest = bytes(source);
         if (tempEmptyStringTest.length == 0) {
             return 0x0;
@@ -96,15 +96,15 @@ contract MyIdentity is ERC725Y {
     function getData() public view
     returns (string memory)
     {
-        return (bytes2String(getData(bytes32(uint256(uint160(msg.sender))))));
+        return (_bytes2String(getData(bytes32(uint256(uint160(msg.sender))))));
     }
 
 
-    function getData(string memory key) public view
+    function getData(string calldata key) public view
     returns (string memory)
     {
         // bytes32 _key = stringToBytes32(key);
-        return (bytes2String(getData(keccak256(bytes(key)))));
+        return (_bytes2String(getData(keccak256(bytes(key)))));
     }
 
 
@@ -112,7 +112,7 @@ contract MyIdentity is ERC725Y {
     returns (string memory)
     {
         bytes32 _key = bytes32(uint256(uint160(key)));
-        return (bytes2String(getData(_key)));
+        return (_bytes2String(getData(_key)));
     }
     
 
